@@ -61,6 +61,7 @@ sonaric node-info
  ├─🧊 Version        v1.4.0
  ...
 ```
+### Save Your Node ID in NotePad
 
 ### Update
 ```
@@ -76,7 +77,8 @@ apt upgrade sonaric
 ssh -L 127.0.0.1:44003:127.0.0.1:44003 -L 127.0.0.1:44004:127.0.0.1:44004 -L 127.0.0.1:44005:127.0.0.1:44005 -L 127.0.0.1:44006:127.0.0.1:44006 user@your-vps-ip
 ```
 - You will be prompted to authenticate cia SSH. Once authenticated, the SSH tunnel will be established.
-- Your local machine and navigate to http://localhost:44004 to access the Sonaric GUI.
+- WSL Users to http://localhost:44004 to access the Sonaric GUI.
+- Click ⚙️ , Set Your Node Name, Export Your All Keys & Save
 ```
 curl http://localhost:44004
 ```
