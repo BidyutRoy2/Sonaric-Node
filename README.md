@@ -53,3 +53,6 @@ sonaric identity-export -o your-node-name.identity
 sonaric identity-import -o your-node-name.identity
 ```
 
+## Track Your Node [Go to Here & Check](https://tracker.sonaric.xyz)
+
+## Official [Guide](https://docs.sonaric.xyz/installation)
