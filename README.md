@@ -14,16 +14,33 @@
 
 - You can buy VPS from [PQ Hosting](https://pq.hosting/en/vps) using Crypto
 
-## Installation Guide
+## Installation Guide Open WSL or Putty
 
-### Open WSL or Putty
+### Install Update / Packages
+```
+sudo apt update -y && sudo apt upgrade -y
+```
 
-- Use these 2 commands first to create a Screen session
+### Node JS
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install 20
+nvm use 20
+npm install -g npm@latest
+```
+
+### Use these 2 commands first to create a Screen session
+  
 ```bash
 sudo apt-get update
 sudo apt-get install screen
 ```
-### Then Paste this command:
+
+### Run the following command to download and execute the installation script
 ```bash
 wget https://raw.githubusercontent.com/BidyutRoy2/Sonaric-Node/main/sonaric.sh && chmod +x sonaric.sh && ./sonaric.sh
 ```
@@ -32,10 +49,11 @@ wget https://raw.githubusercontent.com/BidyutRoy2/Sonaric-Node/main/sonaric.sh &
 screen -S Sonaric-Node
 ```
 
-### To confirm the node is running the latest version, issue the following command:
+### Node İnfo
 ```
 sonaric node-info
 ```
+###  It should return the node information if the node is running
 ```
  ✨ Example Node information loaded:
  ├─🧊 ID             12D3XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -44,13 +62,13 @@ sonaric node-info
  ...
 ```
 
-## Update Node
+### Update
 ```
 apt update
 apt upgrade sonaric
 ```
 
-## Accessing the GUI
+### Accessing the GUI
 
 - Create an SSH tunnel to forward the required ports to your local machine by issuing the following command on your local machine : ssh -L 127.0.0.1:44003:127.0.0.1:44003 -L 127.0.0.1:44004:127.0.0.1:44004 -L 127.0.0.1:44005:127.0.0.1:44005 -L 127.0.0.1:44006:127.0.0.1:44006 user@your-vps-ip - 
 - Change your ip And Change User - if you use root write root
@@ -63,7 +81,7 @@ ssh -L 127.0.0.1:44003:127.0.0.1:44003 -L 127.0.0.1:44004:127.0.0.1:44004 -L 127
 curl http://localhost:44004
 ```
 
-## Identity Backup
+### Identity Backup
 
 ### Export
 ```
@@ -76,11 +94,11 @@ sonaric identity-export -o your-node-name.identity
 sonaric identity-import -i your-node-name.identity
 ```
 
-## Points Check
+### Points Check
 ```
 sonaric points
 ```
 
-## Track Your Node [Go to Here & Check](https://tracker.sonaric.xyz)
+### Track Your Node > [Go to Here & Check](https://tracker.sonaric.xyz)
 
-## Official [Guide](https://docs.sonaric.xyz/installation)
+### Official > [Guide](https://docs.sonaric.xyz/installation)
