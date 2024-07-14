@@ -23,34 +23,62 @@
 sudo apt-get update
 sudo apt-get install screen
 ```
-```bash
-screen -S Sonaric-Node
-```
 ### Then Paste this command:
 ```bash
 wget https://raw.githubusercontent.com/BidyutRoy2/Sonaric-Node/main/sonaric.sh && chmod +x sonaric.sh && ./sonaric.sh
 ```
-- To detach from this screen u need to press `Ctrl + A + D`
-- After that you can close your Termius or Putty App
+
+```bash
+screen -S Sonaric-Node
+```
 
 ### To confirm the node is running the latest version, issue the following command:
 ```
 sonaric node-info
 ```
+```
+ ✨ Example Node information loaded:
+ ├─🧊 ID             12D3XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ ├─📥 Name         wavy-cream-yacht
+ ├─🧊 Version        v1.4.0
+ ...
+```
 
-## Create an SSH tunnel to forward the required ports to your local machine by issuing the following command on your local machine:
+## Update Node
+```
+apt update
+apt upgrade sonaric
+```
+
+## Accessing the GUI
+
+- Create an SSH tunnel to forward the required ports to your local machine by issuing the following command on your local machine : ssh -L 127.0.0.1:44003:127.0.0.1:44003 -L 127.0.0.1:44004:127.0.0.1:44004 -L 127.0.0.1:44005:127.0.0.1:44005 -L 127.0.0.1:44006:127.0.0.1:44006 user@your-vps-ip - 
+- Change your ip And Change User - if you use root write root
 ```
 ssh -L 127.0.0.1:44003:127.0.0.1:44003 -L 127.0.0.1:44004:127.0.0.1:44004 -L 127.0.0.1:44005:127.0.0.1:44005 -L 127.0.0.1:44006:127.0.0.1:44006 user@your-vps-ip
 ```
-### Replace user with your VPS username and your-vps-ip with your VPS IP address.
-- Make sure not to run this command on your VPS. Run this command on your local machine to establish an SSH tunnel to your VPS. If you are using Windows, you can run this command in WSL or use PuTTY to create an SSH tunnel using ports specified above.
-- - You will be prompted to authenticate cia SSH. Once authenticated, the SSH tunnel will be established.
-- Open a web browser on your local machine and navigate to http://localhost:44004 to access the Sonaric GUI.
+- You will be prompted to authenticate cia SSH. Once authenticated, the SSH tunnel will be established.
+- Your local machine and navigate to http://localhost:44004 to access the Sonaric GUI.
+```
+curl http://localhost:44004
+```
 
-## Backup and Recovery
+## Identity Backup
+
+### Export
 ```
 sonaric identity-export -o your-node-name.identity
-sonaric identity-import -o your-node-name.identity
+```
+- You will be prompted to enter a password to encrypt the exported identity. After entering the password, the identity will be exported to the specified file
+
+### Import
+```
+sonaric identity-import -i your-node-name.identity
+```
+
+## Points Check
+```
+sonaric points
 ```
 
 ## Track Your Node [Go to Here & Check](https://tracker.sonaric.xyz)
